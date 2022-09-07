@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: medium;
+            }
+            span {
+                display: block;
+            }
+            .row {
+                display: inline;
+            }
+        </style>
+        <meta charset="utf-8" />
+        <title>{{ site.name }}</title>
+    </head>
+    <body>
+        <div>
+            <h2>You are entering... "The {{ site.name }}"</h2>
+            <p>{{ site.theme_display }} {{ site.domain_display }}</p>                
+        </div>
+            {% for area in site.map %}
+            <div>
+                <hr>
+                <span><div class="row">Feature: </div><div class="row">{{ site.map[area].feature.description }} ({{ site.map[area].feature.aspect }} {{ site.map[area].feature.focus }})</div></span>
+                <span><div class="row">Danger: </div><div class="row">{{ site.map[area].danger.description }}</div></span>
+                <br>
+                {% if site.map[area].danger.denizen %}
+                <div>
+                    <span><h4 class="row">Denizen</h4></span>
+                    <span><div class="row">Challenge: </div><div class="row">{{ site.map[area].danger.denizen.challenge }}</div></span>
+                    <span><div class="row">Size: </div><div class="row">{{ site.map[area].danger.denizen.size }}</div></span>
+                    <span><div class="row">Form: </div><div class="row">{{ site.map[area].danger.denizen.form }}</div></span>
+                    <span><div class="row">Features: </div><div class="row">{{ site.map[area].danger.denizen.features }}</div></span>
+                    <span><div class="row">Abilities: </div><div class="row">{{ site.map[area].danger.denizen.abilities }}</div></span>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <hr>
+            <form action="/" method="GET">
+                <button type="submit">Return Home</button>
+            </form>
+    </body>
+</html>
