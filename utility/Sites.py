@@ -74,7 +74,7 @@ class Sites:
 
     def create_map(self, theme, domain, size):        
         map = {}
-        danger_increments = 100 / size
+        danger_increments = round(100 / size)
         
         for n in range(0, size):
             theme_details = self.site_theme_map[theme]()

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+          body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+          }
+        </style>
         <meta charset="utf-8" />
         <title>We're going on an adventure...</title>
     </head>
     <body>
         <form action = "/site" method="GET">
-            <label for="size">Adventure size: </label><input type="number" id="size" name="size" min="1" />
-            <button type="submit">So it Begins...</button>
+            <label for="size">Adventure length (1-50): </label><input type="number" id="size" name="size" min="1" max="50" required />
+            <button type="submit">Undertake your journey...</button>
         </form>
     </body>
 </html>
